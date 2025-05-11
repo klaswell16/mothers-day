@@ -1,5 +1,5 @@
 <script setup>
-transition = false
+
 
 </script>
 
@@ -8,7 +8,7 @@ transition = false
     working
   </header>
   <div>
-    <button @click="transition = true">click me</button>
+    <button>click me</button>
   </div>
 </template>
 
