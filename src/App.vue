@@ -15,7 +15,7 @@ const transition = ref(false);
       class="overlay-button" 
       @click="transition = true"
     >
-      click me
+    
     </button>
     <img
       class="card-image hover-image"
@@ -63,15 +63,15 @@ const transition = ref(false);
 .overlay-button {
   position: absolute;
   bottom: 55%;
-  right: 50%;
+  right: 45%;
   background: transparent;
-  border: 2px solid white;
+  border: 2px solid black;
   color: white;
-  padding: 10px 20px;
+  padding: 60px 90px;
   cursor: pointer;
-  font-size: 16px;
   border-radius: 5px;
   z-index: 3;  
+  
 }
 
 
