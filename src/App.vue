@@ -4,27 +4,36 @@ const transition = ref(false);
 </script>
 
 <template>
-  <header>working</header>
+  
   <div class="image-container">
+    <!-- Main Image (Always Visible) -->
     <img
-      class="card-image"
+      class="card-image main-image"
       alt="boys waiting"
       src="/boys_waiting.png"
     />
+    
+    
     <button 
       class="overlay-button" 
       @click="transition = true"
     >
       click me
     </button>
+    <img
+      class="card-image hover-image"
+      alt="boys waiting - hover state"
+      src="/boys_pressin.png"  
+    />
+    
   </div>
   <div v-if="transition">trans</div>
 </template>
 
 <style scoped>
 .image-container {
-  position: relative; 
-  display: inline-block; 
+  position: relative;
+  display: inline-block;
 }
 
 .card-image {
@@ -33,22 +42,42 @@ const transition = ref(false);
   display: block;
 }
 
+.main-image {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.hover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;  
+  transition: opacity 0.3s ease;
+}
+
 .overlay-button {
   position: absolute;
-  bottom: 55%; 
-  right: 50%;  
-  
-  
+  bottom: 55%;
+  right: 50%;
   background: transparent;
-  border: 2px solid black;
+  border: 2px solid white;
   color: white;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
   border-radius: 5px;
+  z-index: 3;  
 }
 
-.overlay-button:hover {
-  background: rgba(255, 255, 255, 0.2);
+
+.overlay-button:hover ~ .hover-image {
+  opacity: 1;
+}
+
+
+.overlay-button:hover ~ .main-image {
+  opacity: 0;
 }
 </style>
