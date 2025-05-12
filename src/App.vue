@@ -5,15 +5,12 @@ const transition = ref(false);
 
 <template>
   
-  <div class="image-container">
-    <!-- Main Image (Always Visible) -->
+  <div v-if="transition === false" class="image-container">
     <img
       class="card-image main-image"
       alt="boys waiting"
       src="/boys_waiting.png"
     />
-    
-    
     <button 
       class="overlay-button" 
       @click="transition = true"
@@ -27,7 +24,13 @@ const transition = ref(false);
     />
     
   </div>
-  <div v-if="transition">trans</div>
+  <div v-if="transition">
+    <img 
+      class="card-image"
+      alt=" "
+      src="/boys_lovin.png" 
+      >
+  </div>
 </template>
 
 <style scoped>
